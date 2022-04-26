@@ -16,17 +16,15 @@ pipeline {
 
             }
                 }
-        stage('build backend') {
+        stage('build backend')
+        {
             steps {
                 sh 'python --version'
                 sh 'echo "Backend"'
                 sh 'sleep 15'
-
-            }
-
-
+                  }
         }
-
+}
         post {
         always {
             sh 'echo "Run at the end"'
