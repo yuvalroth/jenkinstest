@@ -3,9 +3,12 @@ pipeline {
     stages {
         stage('build fe') {
             steps {
-                sh 'python --version'
-                sh 'echo "FE"'
-                sh 'sleep 10'
+            parallel{
+                    sh 'python --version'
+                    sh 'echo "FE"'
+                    sh 'sleep 10'
+                    sh 'sleep 12'
+                      }
                   }
             }
         stage('build integration') {
@@ -26,5 +29,11 @@ pipeline {
 
 
         }
+
+        post {
+        always {
+            sh 'echo "Run at the end"'
+        }
+    }
     }
 }
