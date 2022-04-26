@@ -6,15 +6,15 @@ pipeline {
                 sh 'python --version'
                 sh 'echo "FE"'
 
+                  }
             }
-
         stage('build integration') {
             steps {
                 sh 'python --version'
                 sh 'echo "Integration"'
 
             }
-
+                }
         stage('build backend') {
             steps {
                 sh 'python --version'
