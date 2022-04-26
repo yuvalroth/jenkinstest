@@ -2,13 +2,13 @@ pipeline {
     agent { docker { image 'python:3.10.1-alpine' } }
     stages {
         stage('build fe') {
-            steps {
-            parallel{
-                    sh 'python --version'
-                    sh 'echo "FE"'
-                    sh 'sleep 10'
-                    sh 'sleep 12'
-                      }
+            parallel {
+                    {
+                        sh 'python --version'
+                        sh 'echo "FE"'
+                        sh 'sleep 10'
+                        sh 'sleep 12'
+                     }
                   }
             }
         stage('build integration') {
