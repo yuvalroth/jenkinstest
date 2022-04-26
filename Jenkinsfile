@@ -5,13 +5,14 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'echo "FE"'
-
+                sh 'sleep 10'
                   }
             }
         stage('build integration') {
             steps {
                 sh 'python --version'
                 sh 'echo "Integration"'
+                sh 'sleep 20'
 
             }
                 }
@@ -19,6 +20,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'echo "Backend"'
+                sh 'sleep 15'
 
             }
 
