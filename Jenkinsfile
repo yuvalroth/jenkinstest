@@ -1,8 +1,8 @@
 pipeline {
     agent { docker { image 'python:3.10.1-alpine' } }
     stages {
-    stage ('build all')
-    {
+    stage ('build all') {
+    parallel {
                 stage('build fe')
                     {
                     steps {
@@ -26,6 +26,7 @@ pipeline {
                         sh 'echo "Backend"'
                         sh 'sleep 15'
                          }
+                }
                 }
            }
         }
