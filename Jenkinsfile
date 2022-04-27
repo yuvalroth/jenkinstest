@@ -17,7 +17,7 @@ pipeline {
                 {
                 agent { docker { image 'alpine' } }
                     steps {
-                            sh 'python --version'
+
                             sh 'echo "Integration"'
                             sh 'sleep 20'
                            }
@@ -26,7 +26,7 @@ pipeline {
                 {
                 agent { docker { image 'node' } }
                     steps {
-                        sh 'python --version'
+                        sh 'node --version'
                         sh 'echo "Backend"'
                         sh 'sleep 15'
                          }
