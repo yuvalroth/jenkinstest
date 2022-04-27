@@ -15,9 +15,7 @@ pipeline {
                     }
                 stage('build integration')
                 {
-                agent {
-                        label "linux"
-                    }
+                agent { docker { image 'alpine' } }
                     steps {
                             sh 'python --version'
                             sh 'echo "Integration"'
@@ -26,9 +24,7 @@ pipeline {
                 }
                 stage('build backend')
                 {
-                agent {
-                        label "linux"
-                    }
+                agent { docker { image 'node' } }
                     steps {
                         sh 'python --version'
                         sh 'echo "Backend"'
