@@ -1,10 +1,12 @@
 pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
+//     agent { docker { image 'python:3.10.1-alpine' } }
+    agent none
     stages {
     stage ('build all') {
     parallel {
-                stage('build fe')
-                    {
+                stage('build fe'){
+                agent { docker { image 'python:3.10.1-alpine' } }
+
                     steps {
                         sh 'python --version'
                             sh 'echo "FE"'
@@ -13,6 +15,9 @@ pipeline {
                     }
                 stage('build integration')
                 {
+                agent {
+                        label "linux"
+                    }
                     steps {
                             sh 'python --version'
                             sh 'echo "Integration"'
@@ -21,6 +26,9 @@ pipeline {
                 }
                 stage('build backend')
                 {
+                agent {
+                        label "linux"
+                    }
                     steps {
                         sh 'python --version'
                         sh 'echo "Backend"'
